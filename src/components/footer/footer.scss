@@ -1,0 +1,43 @@
+
+@use "../mixins.scss" as mixins;
+
+
+footer {
+    background-color: #000;
+    height: 209px;
+    display: flex;
+}
+
+.footer-container {
+    // padding: 66px 463px 29px 463px;
+    @include mixins.flex-display-select(row);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .footer-container-elements {
+        @include mixins.flex-display-select(column);
+        color: white;
+        align-items: center;
+        gap: 30px;
+        img {
+            width: 122px;
+            height: 39.44px;
+        }
+        p {
+            font-size: 24px;
+        }
+        @include mixins.media-queries(mobile) {
+            p {
+                font-size: 12px;
+                padding: 0 122px;
+                // width: 70%;
+                text-align: center;
+            }
+          }
+          @include mixins.media-queries(mobile-little-size) {
+            p {
+                padding: 0;
+            }
+          }
+    }
+}

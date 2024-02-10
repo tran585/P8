@@ -1,0 +1,98 @@
+@use "../mixins.scss" as mixins;
+
+
+@keyframes hideElement {
+    0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-70%);
+      }
+}
+
+.section-collapses {
+    @include mixins.flex-display-select(column);
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 50px;
+    @include mixins.media-queries(tablet) {
+    }
+    .collapses-container {
+        width: 82.5%;
+        @include mixins.media-queries(tablet) {
+            width: 90%;
+        }
+        @include mixins.media-queries(mobile) {
+            width: 100%;
+        }
+    }
+    .collapses-bar {
+        @include mixins.flex-display-select(row);
+        // position: relative;
+        align-items: center;
+        justify-content: space-between;
+        height: 54px;
+        border-radius: 5px;
+        z-index: 2;
+        background-color: #FF6060;
+        padding: 0 24px 0 15px;
+        span {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        img {
+            width: 32px;
+            height: 32px;
+        }
+        .collapse-arrows {
+            transform: rotateY(0deg);
+        }
+        @include mixins.media-queries(mobile) {
+            height: 30px;
+            & span {
+                font-size: 12px;
+            }
+            & img {
+                width: 24px;
+                height: 24px;     
+            }
+        }
+    }
+    .collapse {
+        position: relative;
+        background-color: #F6F6F6;
+        border-radius: 5px;
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        transition: height 250ms;
+        text-align: left;
+        border: none;
+        outline: none;
+    }
+    .collapse-activated {
+        background-color: #F6F6F6;
+        border-radius: 5px;
+        height: 0;
+        overflow: hidden;
+        width: 100%;
+        transition: height 250ms;
+        text-align: left;
+        border: none;
+        outline: none;
+    }
+
+}
+
+.tag-collapses, .tag-collapses-activated { //text tag
+    margin: 0;
+    overflow-wrap: break-word;
+    padding: 16px 20px 20px 20px;
+    @include mixins.media-queries(mobile) {
+        padding: 13px 20px 19px 20px;
+    }
+}
+.tag-collapses {
+    transform: translateY(-100%);
+}

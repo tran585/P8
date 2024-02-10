@@ -1,0 +1,30 @@
+
+
+@mixin flex-display-select($choice) { //to select and config display (row/column)
+    @if $choice == row {
+        display: flex;
+        flex-direction: row;
+    }
+    @else {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@mixin media-queries($choice) { //choice between tablet or mobile responsive design
+    @if $choice == tablet {
+        @media screen and (max-width: 1023px) {
+            &{@content;}
+        }
+    }
+    @else if $choice == mobile {
+        @media screen and (max-width: 500px) {
+            &{@content;}
+        }
+    }
+    @else if $choice == mobile-little-size {
+        @media screen and (max-width: 300px) {
+            &{@content;}
+        }
+    }
+}

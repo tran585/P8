@@ -1,0 +1,55 @@
+
+@use "../mixins.scss" as mixins;
+
+Header {
+    @include mixins.flex-display-select(row);
+    background-color: white;
+    justify-content: space-between;
+    padding: 50px 100px 0 100px;
+    @include mixins.media-queries(tablet) {
+        padding: 25px 50px 0 50px;
+    };
+    @include mixins.media-queries(mobile) {
+        padding: 0 20px;
+        margin-top: 20px;
+    }
+    @include mixins.media-queries(mobile-little-size) {
+        padding: 0 10px;
+    }
+    img {
+        width: 210px;
+        height: 68px;
+        @include mixins.media-queries(tablet) {
+            width: 145px;
+            height: 46.88px;
+        };
+        @include mixins.media-queries(mobile-little-size) {
+            width: 120px;
+            height: 46.88px;
+          }
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 57px;
+        @include mixins.media-queries(tablet) {
+            gap: 26px;
+        };
+        @include mixins.media-queries(mobile) {
+            gap: 12px;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            font-size: 24px;
+            @include mixins.media-queries(tablet) {
+                font-size: 18px;
+                white-space: nowrap;
+            }
+            @include mixins.media-queries(mobile) {
+                font-size: 12px;
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+
+@use "../../components//mixins.scss" as mixins;
+
+.section-error {
+    @include mixins.flex-display-select(column);
+    gap: 139px;
+    align-items: center;
+    margin-top: 95px;
+    margin-bottom: 139px;
+    h1 {
+        font-size: 288px;
+        color: #FF6060;
+    }
+    p {
+        color: #FF6060;
+        font-size: 36px;
+        text-align: center;
+    }
+    a {
+        color: #000;
+        font-size: 18px;
+    }
+    @include mixins.media-queries(tablet) {
+        h1 {
+            font-size: 200px;
+        }
+        p {
+            font-size: 27px;
+        }
+        a {
+            font-size: 16px;
+        }
+    }
+    @include mixins.media-queries(mobile) {
+        h1 {
+            font-size: 96px;
+        }
+        p {
+            font-size: 18px;
+        }
+        a {
+            font-size: 14px;
+        }
+    }
+}
