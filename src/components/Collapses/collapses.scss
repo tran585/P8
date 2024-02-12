@@ -1,7 +1,7 @@
 @use "../mixins.scss" as mixins;
 
 
-@keyframes hideElement {
+@keyframes hideElement { //need to rename !
     0% {
         transform: translateY(0);
       }
@@ -14,6 +14,8 @@
     @include mixins.flex-display-select(column);
     gap: 30px;
     align-items: center;
+    // align-items: start;
+
     margin-bottom: 50px;
     @include mixins.media-queries(tablet) {
     }
@@ -85,7 +87,9 @@
 
 }
 
-.tag-collapses, .tag-collapses-activated { //text tag
+
+.tag-collapses, .tag-collapses-activated { //need to rename !
+    @include mixins.flex-display-select(column);
     margin: 0;
     overflow-wrap: break-word;
     padding: 16px 20px 20px 20px;

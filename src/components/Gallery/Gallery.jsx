@@ -1,20 +1,27 @@
 
 import React from 'react'
 import './gallery.scss'
-import { useParams } from 'react-router-dom'
+import { Outlet, useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 
 
 
-function GalleryLocation({ title, cover, linkId }) {
-    const { linkById } = useParams()
+function GalleryLocation({ title, cover, id }) {
+    // const { linkById } = useParams()
+    // console.log(linkById)
 
+    // useEffect(() => {
+    //     console.log(linkById)
+    //     linkById&& setLink(linkId)
+    // },[linkById])
     return ( //Create new link to location page
         <React.Fragment>
-            <Link onClick={console.log(linkById)} to={`/${linkId}`}>
+            <Link to={`/location/${id}`}>
                 <img src={cover} alt={title} />
             </Link>
+
             <figcaption>{title}</figcaption>
         </React.Fragment>
     )

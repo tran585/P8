@@ -9,25 +9,20 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
 function App() {
-    const [locationDatas, setLocationDatas] = useState([])
+    const saveLocationDatas = localStorage.getItem('locationDatas')
+    const [locationDatas, setLocationDatas] = useState(saveLocationDatas? JSON.parse(saveLocationDatas) :[])
     const [aboutDatas, setAboutDatas] = useState()
-
     useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('/datas/logements.json')
-            const datas = await response.json()
-            setLocationDatas(datas)
-        }
-        fetchData()
-    },[])
+        localStorage.setItem('locationDatas', JSON.stringify(locationDatas))
+    },[locationDatas])
 
     return (
     <Router>
     <Header />
     <main>
         <Routes>
-            <Route path="/:linkById" element={<MainPage locationDatas={locationDatas} setLocationDatas={setLocationDatas}/>}/>
-            <Route path="/location" element={<Location />} />
+            <Route path="/" element={<MainPage locationDatas={locationDatas} setLocationDatas={setLocationDatas}/>}/>
+            <Route path="/location/:linkById/" element={<Location locationDatas={locationDatas} setLocationDatas={setLocationDatas}/>}/>
             <Route path='/about' element={<About aboutDatas={aboutDatas} setAboutDatas={setAboutDatas}/>}/>
             <Route path="*" element={<Error />} />
         </Routes>
