@@ -1,3 +1,56 @@
 
-@use "./components/mixins.scss" as mixins;
+@use '../mixins.scss' as mixins;
 
+.pictures-section {
+    height: 415px;
+    position: relative;
+    @include mixins.media-queries(mobile) {
+        height: 255px;
+    }
+    .pictures-carroussel {
+        border-radius: 25px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        @include mixins.media-queries(mobile) {
+            border-radius: 10px;
+        }
+    }
+    .index-pages {
+        color: white;
+        font-size: 18px;
+        position: absolute;
+        bottom: 6%;
+        left: 50%;
+        transform: translateX(-50%); 
+        @include mixins.media-queries(mobile) {
+            display: none;
+        }
+    }
+    .arrow-left, .arrow-right {
+        position: absolute;
+        height: 119.64px;
+        width: 96px;
+        @include mixins.media-queries(tablet) {
+            height: 75px;
+            width: 55px;
+        }
+        @include mixins.media-queries(mobile) {
+            border-radius: 10px;
+            height: 24px;
+            width: 24px;
+        }
+    }
+    .arrow {
+        &-left {
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%); 
+        }
+        &-right {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}

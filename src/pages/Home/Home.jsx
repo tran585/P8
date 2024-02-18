@@ -1,19 +1,9 @@
 import React from 'react'
-import { useEffect } from 'react'
 import picture from '../../assets/fond-ecran-1.png'
 import Banner from '../../components/Banner/Banner'
 import GalleryLocation from '../../components/Gallery/Gallery'
 
-function Home({ locationDatas, setLocationDatas }) {
-
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('/datas/logements.json')
-            const datas = await response.json()
-            setLocationDatas(datas)
-        }
-        fetchData()
-    },[])
+function Home({ locationDatas }) {
 
     return (
         <React.Fragment>

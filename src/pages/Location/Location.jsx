@@ -1,81 +1,63 @@
-import { useParams, Navigate } from 'react-router-dom'
 import React from 'react'
+import { useParams, Navigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import './Location.scss'
 import Collapses from '../../components/Collapses/Collapses'
+import Carroussel from '../../components/Carroussel/Carroussel'
+import InformationsLocation from '../../components/InformationsLocation/InformationsLocation'
 
-function Location({ locationDatas, setlocationDatas }) {
-  const { linkById } = useParams({})
+function Location({ locationDatas }) {
+  const { getLinkLocation } = useParams({})
   const [linkId, setLink] = useState({})
-  useEffect(() => {
-    function returnErrorLink() {
-      // const testReturn = locationDatas.map(({id}) => id)
-      // testReturn.includes(linkById)? setLink(true) : setLink(false)
-      locationDatas.find(({ id }) => linkById === id)
+  
+  
+  useEffect(() => { // verify if link is right
+      if (locationDatas.length > 0) {
+        locationDatas.find(({ id }) => getLinkLocation === id)
         ? setLink(true)
         : setLink(false)
     }
-    returnErrorLink()
   }, [])
 
   return (
     <React.Fragment>
       {linkId ? (
-        <section className="logement-section">
-          {locationDatas.map(
-            ({
-              pictures,
-              title,
-              host,
-              rating,
-              location,
-              equipments,
-              tags,
-              id,
-              description,
-            }) =>
-              linkById === id && (
-                <React.Fragment>
-                  <div key={id} className="title-container">
-                    <h1>{title}</h1>
-                    <p>{location}</p>
-                    <ul>
-                      {tags.map((tags, index) => (
-                        <li key={`li-${index}`}>{tags}</li>
-                      ))}
-                    </ul>
-                  </div>
+        locationDatas.map(
+          ({
+            pictures,
+            title,
+            host,
+            rating,
+            location,
+            equipments,
+            tags,
+            id,
+            description,
+          }) =>
+          getLinkLocation === id && (
+              <div className='main-container' key={`id-number-${id}`}>
+                <Carroussel pictures={pictures}/>
+                <section className="logement-section">
+                    <InformationsLocation title={title} location={location} tags={tags} host={host} rating={rating}/>
                   <div
                     style={{ alignItems: 'start', flexDirection: 'row' }}
                     className="section-collapses">
-                    <div className="collapses-container">
                       <Collapses
                         title={'equipments'}
-                        description={equipments.map(
-                          (equipment, equipmentIndex) => (
-                            <span key={`equipment-${equipmentIndex}`}>
-                              {equipment}
-                            </span>
-                          )
-                        )}
+                        equipments={equipments}
                       />
-                    </div>
-                    <div className="collapses-container">
                       <Collapses
                         title={'description'}
                         description={description}
                       />
-                    </div>
                   </div>
-                </React.Fragment>
-              )
-          )}
-        </section>
+                </section>
+              </div>
+            )
+        )
       ) : (
         <Navigate to="*" replace />
       )}
-      {/* {linkId === true  && <div>Location page</div>}
-            {linkId === false && <Navigate to='*' replace/> } */}
     </React.Fragment>
   )
 }

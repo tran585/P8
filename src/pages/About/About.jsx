@@ -6,7 +6,7 @@ import Collapses from '../../components/Collapses/Collapses'
 
 function About({ aboutDatas, setAboutDatas }) {
   useEffect(() => {
-    async function fetchDataAbout() {
+    async function fetchDataAbout() { //get datas of about page by fetch
       const aboutDatas = await fetch('/datas/about.json')
       const responseDatas = await aboutDatas.json()
       setAboutDatas(responseDatas)
@@ -19,9 +19,7 @@ function About({ aboutDatas, setAboutDatas }) {
       <Banner picture={picture} />
       <section className="section-collapses">
         {aboutDatas?.map(({ id, title, description }) => (
-          <div key={id} className="collapses-container">
-            <Collapses title={title} description={description} />
-          </div>
+            <Collapses key={id} title={title} description={description} />
         ))}
       </section>
     </React.Fragment>
