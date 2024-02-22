@@ -13,11 +13,13 @@
     }
     p {
         color: #FF6060;
+        font-weight: 500;
         font-size: 36px;
         text-align: center;
     }
     a {
         color: #000;
+        font-weight: 500;
         font-size: 18px;
     }
     @include mixins.media-queries(tablet) {
@@ -32,6 +34,9 @@
         }
     }
     @include mixins.media-queries(mobile) {
+        gap: 113px;
+        margin-top: 69px;
+        margin-bottom: 113px;
         h1 {
             font-size: 96px;
         }

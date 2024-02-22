@@ -9,7 +9,6 @@ footer {
 }
 
 .footer-container {
-    // padding: 66px 463px 29px 463px;
     @include mixins.flex-display-select(row);
     justify-content: center;
     align-items: center;
@@ -26,12 +25,17 @@ footer {
         p {
             font-size: 24px;
         }
+        @include mixins.media-queries(tablet) {
+            p {
+                font-size: 18px;
+                padding: 0 122px;
+                text-align: center;
+            }
+          }
         @include mixins.media-queries(mobile) {
             p {
                 font-size: 12px;
                 padding: 0 122px;
-                // width: 70%;
-                text-align: center;
             }
           }
           @include mixins.media-queries(mobile-little-size) {

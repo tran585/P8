@@ -5,34 +5,76 @@
     @include mixins.flex-display-select(column);
     margin-top: 50px;
     gap: 30px;
-    // margin-bottom: 50px;
+    .logement-section {
+        @include mixins.flex-display-select(column);
+    }
     .information-container {
         @include mixins.flex-display-select(row);
         justify-content: space-between;
-        margin-bottom: 24px;
-        h1 {
-            color: #FF6060;
-            font-weight: 500;
-            font-size: 36px;
-            line-height: 146%;
+        @include mixins.media-queries(mobile) {
+            @include mixins.flex-display-select(column);
+            gap: 24px;
         }
-        ul {
-            padding: 0;
-            list-style: none;
-            @include mixins.flex-display-select(row);
-            gap: 10px;
-            font-style: 14px;
-            color: white;
-        }
-        li {
-            height: 25px;
-            border-radius: 10px;
-            padding: 3px 2%;
-            background-color: #FF6060;
+        .title-filter-container {
+            @include mixins.flex-display-select(column);
+            width: 75%;
+            @include mixins.media-queries(mobile) {
+                width: 100%;
+            }
+            h1 {
+                color: #FF6060;
+                font-weight: 500;
+                font-size: 36px;
+                line-height: 146%;
+                @include mixins.media-queries(tablet) {
+                    font-size: 28px;
+                }
+                @include mixins.media-queries(mobile) {
+                    font-size: 18px;
+                    margin-bottom: 5px;
+                }
+            }
+            p {
+                font-weight: 500;
+                @include mixins.media-queries(mobile) {
+                    font-size: 14px;
+            }
+            }
+            ul {
+                padding: 0;
+                @include mixins.flex-display-select(row);
+                gap: 10px;
+                font-weight: 700;
+                font-size: 14px;
+                color: white;
+                margin-top: 20px;
+                @include mixins.media-queries(mobile) {
+                    font-size: 10px;
+                    flex-wrap: wrap;
+                }
+            }
+            li {
+                border-radius: 10px;
+                padding: 3.5px 5%;
+                text-align: center;
+                background-color: #FF6060;
+                white-space: nowrap;
+                @include mixins.media-queries(mobile) {
+                    // padding: 3.5px 30px;
+                    border-radius: 5px;
+                }
+            }
         }
         .profil-container {
             @include mixins.flex-display-select(column);
             gap: 21px;
+            width: 25%;
+            @include mixins.media-queries(mobile) {
+                    width: 100%;
+                    flex-direction: row-reverse;
+                    align-items: center;
+                    justify-content: space-between;
+            }
             figure {
                 display: flex;
                 flex-direction: row-reverse;
@@ -42,13 +84,42 @@
                     height: 64px;
                     width: 64px;
                 }
+                figcaption {
+                    font-size: 18px;
+                    color: #FF6060;
+                    font-weight: 500;
+                    width: 51%;
+                    text-align: end;
+                }
+                @include mixins.media-queries(tablet) {
+                    img {
+                        height: 32px;
+                        width: 32px;
+                    }
+                    figcaption {
+                        font-size: 16px;
+                    }
+                }
             }
             .rate-container {
+                justify-content: end;
                 @include mixins.flex-display-select(row);
-                gap: 10px;
+                gap: 14px;
+                @include mixins.media-queries(tablet) {
+                    gap: 10px;
+                }
+                @include mixins.media-queries(mobile) {
+                    gap: 5px;
+                }
                 i {
                     color: #FF6060;
                     font-size: 21.5px;
+                    @include mixins.media-queries(tablet) {
+                        font-size: 18px;
+                    }
+                    @include mixins.media-queries(mobile) {
+                        font-size: 14px;
+                    }
                 }
             }
         }

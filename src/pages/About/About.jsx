@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import Banner from '../../components/Banner/Banner'
-import picture from '../../assets/fond-ecran-2.png'
+import picture from '../../assets/background/fond-ecran-2.png'
 import Collapses from '../../components/Collapses/Collapses'
 
 function About({ aboutDatas, setAboutDatas }) {
@@ -19,7 +19,7 @@ function About({ aboutDatas, setAboutDatas }) {
       <Banner picture={picture} />
       <section className="section-collapses">
         {aboutDatas?.map(({ id, title, description }) => (
-            <Collapses key={id} title={title} description={description} />
+            <Collapses key={`information-${id}`} title={title} description={description} />
         ))}
       </section>
     </React.Fragment>

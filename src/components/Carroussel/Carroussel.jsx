@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import './Carroussel.scss'
-import arrowLeft from '../../assets/arrow_back_ios-24px 1.svg'
-import arrowRight from '../../assets/arrow_forward_ios-24px 1.svg'
+import arrowLeft from '../../assets/utils/arrow_back_ios-24px 1.svg'
+import arrowRight from '../../assets/utils/arrow_forward_ios-24px 1.svg'
 
 
 function Carroussel({pictures, title}) {

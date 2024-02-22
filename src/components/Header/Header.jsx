@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom"
-import LOGO_1 from "../../assets/LOGO_1.svg"
+import { Link, useLocation } from "react-router-dom"
+import LOGO_1 from "../../assets/logo/LOGO_1.svg"
 import "./header.scss"
 
 function Header() {
+    const location = useLocation()
+    const currentPath = location.pathname
+
     return (
         <header>
-            <img src={LOGO_1} alt="logo Kasa" />
+            <Link to={"/"}><img src={LOGO_1} alt="logo Kasa"/></Link>
             <nav>
-              <Link to={"/"}>Accueil</Link>
-              <Link to={"about"}>À propos</Link>
+              <Link className={currentPath === '/'? 'current-page' : ''} to={"/"}>Accueil</Link>
+              <Link className={currentPath === '/about'? 'current-page' : ''}  to={"about"}>A propos</Link>
             </nav>
         </header>
     )

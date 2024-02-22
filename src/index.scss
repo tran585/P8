@@ -6,38 +6,44 @@
   font-family: "Montserrat", "sans-serif";
 }
 
+//general rules //general rules
+
 body {
   display: flex;
   flex-direction: row;
   margin: auto;
+  max-width: 1840px;
+  #root {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #FFF;
+    main {
+      @include mixins.flex-display-select(column);
+      padding: 0 100px;
+      @include mixins.media-queries(tablet) {
+          padding: 0 50px;
+      };
+      @include mixins.media-queries(mobile) {
+          padding: 0 20px;
+      }
+      @include mixins.media-queries(mobile-little-size) {
+          padding: 0 10px;
+      }
+    }
+  }
 }
 
 p {
   font-size: 18px;
   @include mixins.media-queries(tablet) {
+    font-size: 16px;
+  }
+  @include mixins.media-queries(mobile) {
     font-size: 12px;
   }
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: white;
-}
-
-main {
-  @include mixins.flex-display-select(column);
-  padding: 0 100px;
-  gap: 43px;
-  @include mixins.media-queries(tablet) {
-      padding: 0 50px;
-  };
-  @include mixins.media-queries(mobile) {
-      padding: 0 20px;
-      margin-top: 20px;
-  }
-  @include mixins.media-queries(mobile-little-size) {
-      padding: 0 10px;
-  }
+li {
+  list-style: none;
 }

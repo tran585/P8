@@ -37,8 +37,8 @@
         }
         @include mixins.media-queries(mobile) {
             border-radius: 10px;
-            height: 24px;
-            width: 24px;
+            height: 35px;
+            width: 35px;
         }
     }
     .arrow {

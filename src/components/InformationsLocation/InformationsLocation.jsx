@@ -5,12 +5,12 @@ function InformationsLocation({ title, location, tags, host, rating }) {
 
   return (
     <div className="information-container">
-      <div>
+      <div className='title-filter-container'>
         <h1>{title}</h1>
         <p>{location}</p>
         <ul>
           {tags.map((tags, index) => (
-            <li key={`li-${index}`}>{tags}</li>
+            <li key={`tag-number-${index}`}>{tags}</li>
           ))}
         </ul>
       </div>
@@ -20,7 +20,7 @@ function InformationsLocation({ title, location, tags, host, rating }) {
           <figcaption>{host.name}</figcaption>
         </figure>
         <div className="rate-container">
-          {ratingArray.map((index) =>
+          {ratingArray.map((index) => // check with condition,for the attribution of the number of stars(red or grey)
             Number(rating) >= index ? (
               <i key={`rate-${index}`} className="fa-solid fa-star" style={{ color: '#FF6060' }}></i>
             ) : (

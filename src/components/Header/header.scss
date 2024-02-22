@@ -50,6 +50,12 @@ Header {
             @include mixins.media-queries(mobile) {
                 font-size: 12px;
             }
+            // &:hover { // if need to have hover //
+            //     text-decoration: underline ;
+            // }
+        }
+        .current-page {
+            text-decoration: underline;
         }
     }
 }
