@@ -9,8 +9,7 @@ import InformationsLocation from '../../components/InformationsLocation/Informat
 function Location({ locationDatas }) {
   const { getLinkLocation } = useParams({}) // to get current link url with Hook (exemple : /location/2139a317/ = /location/:getLinkLocation/)
   const [linkId, setLink] = useState({})
-  
-  
+
   useEffect(() => { // verify if link is right with datas location id, return true if ok
       if (locationDatas.length > 0) {
         locationDatas.find(({ id }) => getLinkLocation === id)
@@ -42,11 +41,11 @@ function Location({ locationDatas }) {
                   <div
                     className="section-collapses logement-page"> {/* unique creation className (logement-page) to adapte the style for location page */}
                       <Collapses
-                        title={'description'}
+                        title={'Description'}
                         description={description}
                       />
                       <Collapses
-                        title={'equipments'}
+                        title={'Equipments'}
                         equipments={equipments}
                       />
                   </div>

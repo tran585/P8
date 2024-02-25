@@ -12,6 +12,7 @@ function App() {
     const saveLocationDatas = localStorage.getItem('locationDatas')
     const [locationDatas, setLocationDatas] = useState(saveLocationDatas? JSON.parse(saveLocationDatas) : [])
     const [aboutDatas, setAboutDatas] = useState()
+
     useEffect(() => {
         async function fetchData() {
                 const response = await fetch('/datas/logements.json')
@@ -28,7 +29,7 @@ function App() {
     <main>
         <Routes>
             <Route path="/" element={<MainPage locationDatas={locationDatas} setLocationDatas={setLocationDatas} />}/>
-            <Route path="/location/:getLinkLocation/" element={<Location locationDatas={locationDatas} setLocationDatas={setLocationDatas}/>}/>
+            <Route path="/location/:getLinkLocation/" element={<Location locationDatas={locationDatas} />}/>
             <Route path='/about' element={<About aboutDatas={aboutDatas} setAboutDatas={setAboutDatas}/>}/>
             <Route path="*" element={<Error />} />
         </Routes>

@@ -15,7 +15,7 @@ function Carroussel({pictures, title}) {
   return (
     <section className='pictures-section'>
       <img className='pictures-carroussel' src={pictures[indexPictures]} alt={title}/>
-      {pictures.length > 1 ?
+      {pictures.length > 1 ? // show arrows and bullets if picture > 1
       <React.Fragment>
       <span className='index-pages'>{`${indexPictures +1}/${pictures.length}`}</span>
       <img onClick={(event) => handleClick(event)} className='arrow-left' src={arrowLeft} alt="arrow-left" />

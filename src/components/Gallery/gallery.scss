@@ -33,7 +33,6 @@
         position: relative;
         margin: 0;
         height: 340px;
-        background-color: red;
         border-radius: 25px;
         @include mixins.media-queries(mobile) {
             height: 255px;
